@@ -3,7 +3,7 @@ import * as model from './model.js';
 
 import 'core-js/stable';
 import 'regenerator-runtime/runtime';
-import { MODEAL_CLOSE_SEC } from './config.js';
+import { MODAL_CLOSE_SEC } from './config.js';
 import recipeView from './views/recipeView.js';
 import searchView from './views/searchView.js';
 import resultsView from './views/resultsView.js';
@@ -125,10 +125,10 @@ const controlAddRecipe = async function (newRecipe) {
     // Close form window
     setTimeout(function () {
       addRecipeView.toggleWindow()
-    }, MODEAL_CLOSE_SEC * 1000);
+    }, MODAL_CLOSE_SEC * 1000);
   } catch (err) {
     console.error('*', err);
-    addRecipeView.renderError(err.message);
+    addRecipeView.renderError(err.message)
   }
 };
 const init = function () {
