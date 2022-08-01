@@ -15,7 +15,6 @@ class AddRecipeView extends View {
         super();
         this._addHandlerShowWindow();
         this._addHandlerHideWindow();
-        // this._clear();
     }
 
     toggleWindow() {
@@ -30,7 +29,7 @@ class AddRecipeView extends View {
         this._error = false;
     }
 
-
+    // changed not to hide modal after error message
     renderError(message) {
         this._error = true;
         super.renderError(message);
