@@ -18,32 +18,32 @@ class AddRecipeView extends View {
         // this._clear();
     }
 
-    toggleWindow(err = this._error) {
-        console.log(err);
-        if (!err) {
+    toggleWindow() {
+        console.log(this._error);
+        if (!this._error) {
             this._overlay.classList.toggle('hidden');
             this._window.classList.toggle('hidden');
         }
         this._parentElement.innerHTML = '';
         const markup = this._generateMarkup();
         this._parentElement.insertAdjacentHTML('afterbegin', markup);
+        this._error = false;
     }
 
 
     renderError(message) {
         this._error = true;
         super.renderError(message);
-        this._btnClose.addEventListener('click', this.toggleWindow.bind(this, this._error));
-        this._overlay.addEventListener('click', this.toggleWindow.bind(this, this._error));
     }
 
     _addHandlerShowWindow() {
-        this._btnOpen.addEventListener('click', this.toggleWindow.bind(this, this._error));
+        this._btnOpen.addEventListener('click', this.toggleWindow.bind(this));
     }
 
     _addHandlerHideWindow() {
-        this._btnClose.addEventListener('click', this.toggleWindow.bind(this, this._error));
-        this._overlay.addEventListener('click', this.toggleWindow.bind(this, this._error));
+        this._btnClose.addEventListener('click', this.toggleWindow.bind(this));
+        this._overlay.addEventListener('click', this.toggleWindow.bind(this));
+        
 
     }
 
